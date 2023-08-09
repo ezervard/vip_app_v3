@@ -3,4 +3,4 @@
 #2) result 
 #This app find data in database and complete result file                              
 #app use extencions :
-#openpyxl, kivymd, kivy
+openpyxl, kivymd, kivy
