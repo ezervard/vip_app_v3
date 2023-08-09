@@ -1,10 +1,14 @@
 import openpyxl
-
+import datetime
 class CreateRaport:
     def __init__(self):#Инициализация класовых переменных
         self.file_path = 'BRAMY_VIP_MG2.xlsx'
         self.workbook = None
         self.worksheet = None
+        self.current_datetime = datetime.datetime.now()
+        self.act = self.current_datetime.strftime('%d.%m.%Y')
+
+
 
     def raport(self):# Инициализация файла эксель
         try:
@@ -73,9 +77,9 @@ class CreateRaport:
 
 
         try:
-            self.workbook.save('06.08.2023_BRAMY_VIP_MG2.xlsx')  # Сохраняем изменения в файл
+            self.workbook.save(self.act + '_BRAMY_VIP_MG2.xlsx')  # Сохраняем изменения в файл
         except PermissionError:
-            print('Файл открыт')
+            print("файл открыт в другой программе")
 
 
 
@@ -83,6 +87,7 @@ class CreateRaport:
 
 
     def save_workbook(self):
-        self.workbook.save('06.08.2023_BRAMY_VIP_MG2.xlsx')
+        self.workbook.save(self.act +'_BRAMY_VIP_MG2.xlsx')
         print('saved')
+        print(self.current_datetime.strftime('%d.%m.%Y'))
         self.workbook.close()
