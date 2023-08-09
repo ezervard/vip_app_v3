@@ -1,0 +1,84 @@
+<Container>
+
+    text : text
+    BoxLayout:
+
+        orientation: 'vertical'
+        size_hint: 1, 1
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding: [20,15,20,60]
+
+            MDTextField:
+                id: text
+                hint_text: 'Введите номер машины'
+                max_text_length: 8
+                size_hint: 1, 1
+                paddong: [0,0,0,20]
+                mode: "rectangle"
+                mode: "fill"
+                valign: 'center'
+                icon_left: "account-multiple-plus"
+
+        BoxLayout:
+            size_hint: .1, 1
+
+            BoxLayout:
+                padding: [20,20,20,140]
+                MDRaisedButton:
+                    text: 'Выезд'
+                    on_release:
+                        root.exit()
+
+            BoxLayout:
+                padding: [96,20,20,140]
+                MDRaisedButton:
+                    text: 'Проверка'
+                    on_release:
+                        root.check()
+
+            BoxLayout:
+                padding: [195,20,20,140]
+                MDRaisedButton:
+                    text: 'Въезд'
+                    on_release:
+                        root.entrance()
+
+            BoxLayout:
+                padding: [0,0,0,10]
+                MDRaisedButton:
+                    text: 'Открыть БД'
+                    on_release:
+                        root.select_file()
+
+
+            BoxLayout:
+                size_hint: .2, 0.8
+                padding: [140,0,0,10]
+                MDRaisedButton:
+                    text: 'Сохранить'
+                    on_release:
+                        root.save()
+
+            BoxLayout:
+                orientation: 'vertical'
+<Combiner>:
+    BoxLayout:
+        orientation: 'vertical'
+
+        MDToolbar:
+            title: "MDFileManager"
+            left_action_items: [['menu', lambda x: None]]
+            elevation: 10
+
+        FloatLayout:
+
+            MDRoundFlatIconButton:
+                text: "Open manager"
+                icon: "folder"
+                pos_hint: {'center_x': .5, 'center_y': .6}
+                on_release:
+
+
+
